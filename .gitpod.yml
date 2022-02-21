@@ -1,0 +1,16 @@
+---
+# For more details, please see https://www.gitpod.io/docs/references/gitpod-yml
+
+
+tasks:
+  - init: npm install
+    command: |
+      export HMR_HOST=`gp url 24678`
+      npm run dev
+
+
+ports:
+  - port: 3000
+    onOpen: open-browser
+
+
