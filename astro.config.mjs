@@ -1,6 +1,6 @@
 // Full Astro Configuration API Documentation:
 // https://docs.astro.build/reference/configuration-reference
-
+import path from 'node:path';
 // @type-check enabled!
 // VSCode and other TypeScript-enabled text editors will provide auto-completion,
 // helpful tooltips, and warnings if your exported object is invalid.
@@ -11,6 +11,14 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
 	// Comment out "renderers: []" to enable Astro's default component support.
 	renderers: [],
 	vite: {
+		resolve: {
+			alias: {
+				$src: path.resolve('./src'),
+				$components: path.resolve('./src/components'),
+				$layouts: path.resolve('./src/_includes/layouts'),
+				$assets: path.resolve('./src/assets'),
+			},
+		},
 		server: {
 			hmr: {
 				clientPort: process.env.HMR_HOST ? 443: 24678,
