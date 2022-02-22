@@ -14,3 +14,9 @@ ports:
     onOpen: open-browser
 
 
+vscode:
+  extensions:
+  - astro-build.astro-vscode
+  - GitHub.copilot
+  - phoenisx.cssvar
+  - csstools.postcss
