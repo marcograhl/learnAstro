@@ -1,0 +1,26 @@
+---
+import Brand_Logo from './BrandLogo.astro'
+import Site from '$data/Site.json'
+import Navigation from '$data/Navigation.json'
+---
+
+<a class="[ skip-link ] [ button ]" href="#main-content">Skip to content</a>
+<header role="banner" class="site-head">
+  <div class="wrapper">
+    <div class="site-head__inner">
+      <a href="/" aria-label={Site.name + " - home"} class="site-head__brand">
+        <Brand_Logo />
+      </a>
+      <nav class="[ nav ] [ site-head__nav ] [ font-sans ]" aria-label="Primary">
+        <ul class="nav__list">
+          {Navigation.items.map(item => (
+            <li class="">
+              <a href={item.url}>{item.text}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</header>
