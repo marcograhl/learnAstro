@@ -1,0 +1,55 @@
+---
+// import the md files from the work directory and call the collection work
+// After that import only the md files form work with the feature true boolean
+// we can use the Astro.fetchContent() to get the content of the md files like so
+// we also import the util to sort the files
+import {sortByDisplayOrder} from 'src/utils.js'
+
+
+
+let work = Astro.fetchContent('../../work/*md')
+work = sortByDisplayOrder(work)
+
+// now we take the work collection that is already sorted and
+// filter it to only include the files with the feature true boolean
+let featuredWork = work.filter(work => work.featured)
+
+console.log(featuredWork)
+
+
+
+---
+<!-- 
+<article class="[ featured-work ] [ dot-shadow panel ] [ bg-light-glare ]">
+  <div class="[ wrapper ] [ flow ]"> 
+    <div class="[ featured-work__inner ] [ flow ]">
+      <div class="[ featured-work__intro ] [ flow flow-space-300 ]">
+        <h2
+          class="[ featured-work__heading ] [ headline ] [ color-quinary-shade lg:measure-micro ]"
+          data-highlight="dark"
+        >
+          { featuredWork.title }
+        </h2>
+        <p class="[ featured-work__summary ] [ measure-compact ]">
+          { featuredWork.summary }
+        </p>
+      </div>
+      <a
+        href="{ item.url }"
+        aria-label="See { item.data.title }"
+        class="[ featured-work__item ] [ frame ]"
+        data-frame="quaternary"
+      >
+        <img
+          src="{ item.data.hero.image }"
+          alt="{ item.data.hero.imageAlt }"
+          loading="lazy"
+          class="radius"
+        />
+      </a>
+    </div>
+    <div class="[ featured-work__action ] [ flow-space-700 ]">
+      <a href="/work/" class="button">See more work</a>
+    </div>
+  </div>
+</article>  -->

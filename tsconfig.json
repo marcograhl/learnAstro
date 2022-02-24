@@ -15,6 +15,9 @@
       "@/assets/*": [
         "public/assets/*"
       ],
+      "@/work/*": [
+        "src/work/*"
+      ],
     }
   }
 }
