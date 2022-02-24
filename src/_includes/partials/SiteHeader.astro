@@ -1,0 +1,31 @@
+---
+import Brand_Logo from './BrandLogo.astro'
+import site from '$data/site.json'
+import navigation from '$data/navigation.json'
+import {getLinkActiveState} from '$data/helpers.js'
+const {pathname} = Astro.request.url
+---
+
+<a class="[ skip-link ] [ button ]" href="#main-content">Skip to content</a>
+<header role="banner" class="site-head">
+  <div class="wrapper">
+    <div class="site-head__inner">
+      <a href="/" aria-label={site.name + " - home"} class="site-head__brand">
+        <Brand_Logo />
+      </a>
+      <nav class="[ nav ] [ site-head__nav ] [ font-sans ]" aria-label="Primary">
+        <ul class="nav__list">
+          {navigation.items.map(item => (
+            <li>
+              <a href={item.url} {getLinkActiveState(item.url,pathname)}>{item.text} </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</header>
+
+<style>
+</style>

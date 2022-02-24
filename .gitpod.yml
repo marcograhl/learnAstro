@@ -20,3 +20,7 @@ vscode:
   - GitHub.copilot
   - phoenisx.cssvar
   - csstools.postcss
+  - eamodio.gitlens-insiders
+  - mhutchie.git-graph
+  - formulahendry.auto-complete-tag
+  - lucax88x.codeacejumper

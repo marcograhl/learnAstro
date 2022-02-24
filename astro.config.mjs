@@ -18,6 +18,7 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
 				$layouts: path.resolve('./src/_includes/layouts'),
 				$partials: path.resolve('./src/_includes/partials'),
 				$assets: path.resolve('./src/assets'),
+				$data: path.resolve('./src/_data'),
 			},
 		},
 		server: {
