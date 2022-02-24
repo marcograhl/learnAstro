@@ -1,27 +1,31 @@
 ---
 import BaseLayout from '$layouts/BaseLayout.astro'
+import Cta from '$partials/Cta.astro'
 const {content} = Astro.props
+const intro = content.intro
 ---
-
-
 <BaseLayout title="Homepage">
+
   <article class="intro">
     <div class="[ intro__header ] [ radius frame ]">
       <h1 class="[ intro__heading ] [ weight-normal text-400 md:text-600 ]">
-        { content.eyebrow }
-        <em class="text-800 md:text-900 lg:text-major weight-bold">{ content.main }</em>
+        { intro.eyebrow }
+        <em class="text-800 md:text-900 lg:text-major weight-bold">{ intro.main }</em>
       </h1>
     </div>
     <div class="[ intro__content ] [ flow ]">
-      <p class="intro__summary">{ content.summary }</p>
-      <a href="{ content.buttonUrl }" class="button">{ content.buttonText }</a>
+      <p class="intro__summary">{ intro.summary }</p>
+      <a href="{ intro.buttonUrl }" class="button">{ intro.buttonText }</a>
     </div>
     <div class="[ intro__media ] [ radius dot-shadow ]">
       <img
         class="[ intro__image ] [ radius ]"
-        src={ content.image }
-        alt={ content.imageAlt }
+        src={ intro.image }
+        alt={ intro.imageAlt }
       />
     </div>
   </article>
+
+  <Cta/>
+  <Cta ctaContent={content.primaryCTA}/>
 </BaseLayout>
