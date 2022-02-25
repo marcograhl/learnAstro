@@ -5,21 +5,20 @@
 // we also import the util to sort the files
 import {sortByDisplayOrder} from 'src/utils.js'
 
-
+const {featuredWork} = Astro.props
 
 let work = Astro.fetchContent('../../work/*md')
 work = sortByDisplayOrder(work)
 
 // now we take the work collection that is already sorted and
 // filter it to only include the files with the feature true boolean
-let featuredWork = work.filter(work => work.featured)
-
-console.log(featuredWork)
+let featuredWorkArr = work.filter(work => work.featured)
 
 
 
 ---
-<!-- 
+
+
 <article class="[ featured-work ] [ dot-shadow panel ] [ bg-light-glare ]">
   <div class="[ wrapper ] [ flow ]"> 
     <div class="[ featured-work__inner ] [ flow ]">
@@ -28,28 +27,30 @@ console.log(featuredWork)
           class="[ featured-work__heading ] [ headline ] [ color-quinary-shade lg:measure-micro ]"
           data-highlight="dark"
         >
-          { featuredWork.title }
+        {featuredWork.title}
         </h2>
         <p class="[ featured-work__summary ] [ measure-compact ]">
-          { featuredWork.summary }
+        {featuredWork.summary}
         </p>
       </div>
+      {featuredWorkArr.map(item =>(
       <a
-        href="{ item.url }"
-        aria-label="See { item.data.title }"
+        href={ item.url }
+        aria-label={"See " + item.title }
         class="[ featured-work__item ] [ frame ]"
         data-frame="quaternary"
       >
         <img
-          src="{ item.data.hero.image }"
-          alt="{ item.data.hero.imageAlt }"
+          src={ item.hero.image }
+          alt={ item.hero.imageAlt }
           loading="lazy"
           class="radius"
         />
       </a>
+      ))}
     </div>
     <div class="[ featured-work__action ] [ flow-space-700 ]">
       <a href="/work/" class="button">See more work</a>
     </div>
   </div>
-</article>  -->
+</article>  
