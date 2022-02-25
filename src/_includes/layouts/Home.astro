@@ -2,6 +2,7 @@
 import BaseLayout from '$layouts/BaseLayout.astro'
 import Cta from '$partials/Cta.astro'
 import FeaturedWork from '$partials/FeaturedWork.astro'
+import StudioFeed from '$partials/StudioFeed.astro'
 
 const {content} = Astro.props
 const intro = content.intro
@@ -29,5 +30,6 @@ const intro = content.intro
 
   <Cta/>
   <FeaturedWork featuredWork={content.featuredWork}/>
+  <StudioFeed studioFeed={content.studioFeed}/>
   <Cta ctaContent={content.primaryCTA}/>
 </BaseLayout>
