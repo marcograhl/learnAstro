@@ -1,0 +1,19 @@
+---
+import BaseLayout from '$layouts/BaseLayout.astro'
+import PageHeader from  "$partials/PageHeader.astro"
+import PostList from  "$partials/PostList.astro"
+let posts = await Astro.fetchContent('../../posts/*md')
+const {content} = Astro.props
+const {title} = content
+const summary = content.astro.source
+
+---
+
+<BaseLayout>
+    <!-- <slot /> -->
+    <article>
+    <PageHeader pageHeaderTitle={title} pageHeaderSummary={summary} />
+    <PostList posts={posts} />
+    </article>
+
+</BaseLayout>
