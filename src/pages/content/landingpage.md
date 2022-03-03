@@ -1,5 +1,6 @@
 ---
 layout: ../../_includes/layouts/Home.astro
+title: 'Issue 33'
 intro:
   eyebrow: 'Digital Marketing is our'
   main: 'Bread & Butter'
