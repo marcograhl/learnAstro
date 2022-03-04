@@ -2,18 +2,23 @@
 import BaseLayout from '$layouts/BaseLayout.astro'
 import PageHeader from  "$partials/PageHeader.astro"
 import PostList from  "$partials/PostList.astro"
+
+export function getStaticPaths({paginate}){
+    return paginate(posts,{pageSize:3})
+}
+
+
 let posts = await Astro.fetchContent('../../posts/*md')
-const {content} = Astro.props
+const {content,page} = Astro.props
 const {title} = content
 const summary = content.astro.source
-
 ---
 
 <BaseLayout>
     <!-- <slot /> -->
     <article>
     <PageHeader pageHeaderTitle={title} pageHeaderSummary={summary} />
-    <PostList posts={posts} />
+    <!-- <PostList posts={posts} /> -->
     </article>
 
 </BaseLayout>
