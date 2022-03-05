@@ -20,6 +20,8 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
 				$assets: path.resolve('./src/assets'),
 				$data: path.resolve('./src/_data'),
 				$work: path.resolve('./src/work'),
+				$pages: path.resolve('./src/pages'),
+				$content: path.resolve('./src/pages/content'),
 			},
 		},
 		server: {

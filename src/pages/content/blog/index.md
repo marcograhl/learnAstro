@@ -1,6 +1,6 @@
 ---
 title: 'The Issue 33 Blog'
-layout: ../../_includes/layouts/Feed.astro
+layout: ../../../_includes/layouts/Feed.astro
 pagination:
   data: collections.blog
   size: 5
