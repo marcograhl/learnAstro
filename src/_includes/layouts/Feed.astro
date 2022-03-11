@@ -17,6 +17,7 @@ const {source:summary} = content.astro
     {page ?
     <PostList posts={page.data} />
     :null}
+    {page.url.prev || page.url.next ? <Pagination page={page} /> : null}
     </article>
 
 </BaseLayout>

@@ -1,12 +1,31 @@
-  <footer class="[ pagination ] [ dot-shadow panel ] [ bg-light-glare font-sans weight-bold ]">
+---
+
+const {page} = Astro.props
+console.log(page)
+---
+
+<!-- 
+  - Only show pagination if more Items as the limit are available
+  - Show Previous or Next and both if items are available
+ -->
+  <footer class="[ page ] [ dot-shadow panel ] [ bg-light-glare font-sans weight-bold ]">
     <div class="wrapper">
+    There are Items
       <nav class="pagination__inner" aria-label="Pagination links">
-          <a href="{ pagination.href.previous }{ paginationAnchor }" data-direction="backwards">
-            <span></span>
-          </a>
-          <a href="{ pagination.href.next }{ paginationAnchor }" data-direction="forwards">
-            <span></span>
-          </a>
+        {
+         page.url.prev ?
+          <a href={page.url.prev} data-direction="">
+            <span>Next</span>
+          </a> 
+          : null
+        }
+        {
+          page.url.next ?
+          <a href={page.url.next} data-direction="forwards">
+            <span>Previous</span>
+          </a> 
+          : null
+        }
       </nav>
     </div>
   </footer>
