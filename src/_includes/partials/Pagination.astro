@@ -1,7 +1,7 @@
 ---
 
 const {page} = Astro.props
-console.log(page)
+// console.log(page)
 ---
 
 <!-- 
@@ -13,18 +13,18 @@ console.log(page)
     There are Items
       <nav class="pagination__inner" aria-label="Pagination links">
         {
-         page.url.prev ?
-          <a href={page.url.prev} data-direction="">
-            <span>Next</span>
-          </a> 
-          : null
-        }
-        {
-          page.url.next ?
+          page.url.next &&
           <a href={page.url.next} data-direction="forwards">
             <span>Previous</span>
           </a> 
-          : null
+          
+        }
+        {
+         page.url.prev &&
+          <a href={page.url.prev} data-direction="">
+            <span>Next</span>
+          </a> 
+          
         }
       </nav>
     </div>
