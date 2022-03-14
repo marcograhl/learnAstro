@@ -1,0 +1,25 @@
+---
+
+const content = Astro.props
+const posts = content.posts
+---
+
+<div class="[ dot-shadow panel ] [ bg-secondary-glare ]" id="post-list">
+  <div class="[ wrapper ] [ flow flow-space-700 ]">
+  <!-- {postListHeadline ? 
+    <h2 class="[ headline ] [ measure-micro ]" data-highlight="primary">
+      { postListHeadline }
+    </h2>
+    : null
+  } -->
+    <div>
+      <ol class="[ post-list ] [ flow ]">
+      {posts.map(item=>(
+        <li class="[ post-list__item ] [ leading-tight measure-long ]">
+          <a href="{ item.url }" class="post-list__link">{ item.title }</a>
+        </li>
+      ))}
+      </ol>
+    </div>
+  </div>
+</div>

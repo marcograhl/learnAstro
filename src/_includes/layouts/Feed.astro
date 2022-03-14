@@ -1,0 +1,23 @@
+---
+import BaseLayout from '$layouts/BaseLayout.astro'
+import PageHeader from  "$partials/PageHeader.astro"
+import PostList from  "$partials/PostList.astro"
+import Pagination from "$partials/Pagination.astro"
+
+const {page, content} = Astro.props
+
+const {title} = content
+const {source:summary} = content.astro
+---
+
+<BaseLayout>
+    <!-- <slot /> -->
+    <article>
+    <PageHeader pageHeaderTitle={title} pageHeaderSummary={summary} />
+    {page ?
+    <PostList posts={page.data} />
+    :null}
+    {page.url.prev || page.url.next ? <Pagination page={page} /> : null}
+    </article>
+
+</BaseLayout>

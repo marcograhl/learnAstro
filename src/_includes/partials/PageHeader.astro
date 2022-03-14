@@ -1,0 +1,17 @@
+---
+const content = Astro.props
+const {pageHeaderTitle, pageHeaderSummary} = content
+---
+<div class="[ page-header ] [ bg-light-glare ]">
+  <div class="[ wrapper ] [ flow ]">
+    <h1 class="[ page-header__heading ] [ headline ]" data-highlight="primary">
+      { pageHeaderTitle }
+    </h1>
+    {pageHeaderSummary ?
+    <div class="[ page-header__summary ] [ measure-long ]">
+      { pageHeaderSummary}
+    </div>
+    : null}
+  </div>
+</div>
+
